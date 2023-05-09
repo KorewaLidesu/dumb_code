@@ -10,18 +10,12 @@ class SoccerPlayer
         int goals;
         int assists;
     public:
-        SoccerPlayer(int = 9999, int = 0, int = 0);
-        int getJerseyNum(void);
-        int getGoals(void);
-        int getAssists(void);
+        SoccerPlayer(int num = 9999, int goals = 0, int assists = 0) 
+            : jerseyNum(num), goals(goals), assists(assists) {}
+        int getJerseyNum(void) { return jerseyNum; }
+        int getGoals(void) { return goals; }
+        int getAssists(void) { return assists; }
 };
-
-SoccerPlayer::SoccerPlayer(int jerseyNum, int goals, int assists)
-{
-    this->jerseyNum = jerseyNum;
-    this->goals = goals;
-    this->assists = assists;
-}
 
 SoccerPlayer operator+(SoccerPlayer base, SoccerPlayer add)
 {
@@ -37,21 +31,6 @@ bool operator>(SoccerPlayer player1, SoccerPlayer player2)
 {
     // Check total of goals and assists
     return player1.goals + player1.assists > player2.goals + player2.assists;
-}
-
-int SoccerPlayer::getJerseyNum(void)
-{
-    return this->jerseyNum;
-}
-
-int SoccerPlayer::getGoals(void)
-{
-    return this->goals;
-}
-
-int SoccerPlayer::getAssists(void)
-{
-    return this->assists;
 }
 
 int main()

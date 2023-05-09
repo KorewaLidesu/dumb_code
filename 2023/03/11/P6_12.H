@@ -11,25 +11,20 @@
 class Rectangle
 {
     public:
-        Rectangle(double = 1.0, double = 1.0);
+        Rectangle(double length = 1.0, double width = 1.0)
+            : length(length), width(width) {}
         bool operator==(Rectangle);
         bool operator!=(Rectangle);
-        double perimeter(void);
-        double area(void);
-        void setWidth(double w) { width = w; };
-        void setLength(double l) { length = l; };
-        double getWidth(void);
-        double getLength(void);
+        double perimeter() { return 2 * (length + width); }
+        double area() { return length * width; }
+        void setWidth(double w) { width = w; }
+        void setLength(double l) { length = l; }
+        double getWidth() { return width; }
+        double getLength() { return length; }
     private:
         double length;
         double width;
 };
-
-Rectangle::Rectangle(double length, double width)
-{
-    this->length = length;
-    this->width = width;
-}
 
 bool Rectangle::operator==(Rectangle compare)
 {
@@ -39,26 +34,6 @@ bool Rectangle::operator==(Rectangle compare)
 bool Rectangle::operator!=(Rectangle compare)
 {
     return this->length != compare.length || this->width != compare.width;
-}
-
-double Rectangle::perimeter(void)
-{
-    return 2 * (length + width);
-}
-
-double Rectangle::area(void)
-{
-    return length * width;
-}
-
-double Rectangle::getWidth(void)
-{
-    return width;
-}
-
-double Rectangle::getLength(void)
-{
-    return length;
 }
 
 #endif

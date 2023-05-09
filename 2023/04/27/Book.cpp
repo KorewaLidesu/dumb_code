@@ -7,7 +7,8 @@ class Book
         std::string title;
         std::string author;
     public:
-        Book(std::string T = "", std::string A = "") : title(T), author(A) {}
+        Book(std::string title = "", std::string author = "")
+            : title(title), author(author) {}
         std::string getTitle() { return title; }
         void setTitle(std::string title) { this -> title = title; } 
         std::string getAuthor() { return author; }
@@ -26,7 +27,8 @@ class Fiction : public Book
     private:
         int numReadLev;
     public:
-        Fiction(std::string title = "", std::string author = "", int level = 0) : Book(title, author), numReadLev(level) {}
+        Fiction(std::string title = "", std::string author = "", int level = 0)
+            : Book(title, author), numReadLev(level) {}
         int getNumReadLev() { return numReadLev; }
         void setNumReadLev(int level) { this -> numReadLev = level; }
         void display();
@@ -43,7 +45,8 @@ class NonFiction : public Book
     private:
         int numofPag;
     public:
-        NonFiction(std::string title = "", std::string author = "", int page = 0) : Book(title, author), numofPag(page) {}
+        NonFiction(std::string title = "", std::string author = "", int page = 0)
+            : Book(title, author), numofPag(page) {}
         int getNumofPag() { return numofPag; }
         void setNumofPag(int page) { this -> numofPag = page; }
         void display();

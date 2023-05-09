@@ -56,6 +56,7 @@ std::ostream& operator<<(std::ostream& out, const Complex& complex)
 {
     out << std::noshowpos << complex.realPart;
     out << std::showpos << complex.imaginaryPart << "i" << std::endl;
+    return out;
 }
 
 std::istream& operator>>(std::istream& in, Complex& complex)
@@ -64,6 +65,7 @@ std::istream& operator>>(std::istream& in, Complex& complex)
     in >> complex.realPart;
     std::cout << "Input imaginary part: ";
     in >> complex.imaginaryPart;
+    return in;
 }
 
 void Complex::printComplex(void)

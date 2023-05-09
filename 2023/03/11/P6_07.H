@@ -21,12 +21,12 @@ class Rational
         Rational operator/(Rational);
         bool operator==(Rational);
         bool operator!=(Rational);
-        void printRational(void);
-        void printRationalAsDouble(void);
+        void printRational();
+        void printRationalAsDouble();
     private:
         double numerator;
         double denominator;
-        void reduction(void);
+        void reduction();
 };
 
 Rational::Rational(int numerator, int denominator)
@@ -42,7 +42,7 @@ Rational::Rational(int numerator, int denominator)
     this->reduction();
 }
 
-void Rational::reduction(void)
+void Rational::reduction()
 {
     if (abs(numerator) == abs(denominator))
     {
@@ -138,12 +138,12 @@ std::istream& operator>>(std::istream& in, Rational& rational)
     return in;
 }
 
-void Rational::printRational(void)
+void Rational::printRational()
 {
     std::cout << numerator << "/" << denominator;
 }
 
-void Rational::printRationalAsDouble(void)
+void Rational::printRationalAsDouble()
 {
     std::cout << (double) (numerator / denominator);
 }

@@ -6,16 +6,10 @@ class Sale
         int receiptNum;
         double saleAmount;
     public:
-        Sale(int, double);
+        Sale(int num, double sale) : receiptNum(num), saleAmount(sale) {}
         Sale operator+(Sale);
         void showSale();
 };
-
-Sale::Sale(int num, double sale)
-{
-    receiptNum = num;
-    saleAmount = sale;
-}
 
 Sale Sale::operator+(Sale transaction)
 {

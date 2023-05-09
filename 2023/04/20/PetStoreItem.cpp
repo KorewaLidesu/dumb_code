@@ -4,27 +4,16 @@ protected:
     int stockNum;
     double price;
 public:
-    PetStoreItem(int, double);
+    PetStoreItem(int stock, double pr) : stockNum(stock), price(pr) {}
 };
-
-PetStoreItem::PetStoreItem(int stock, double pr)
-{
-    stockNum = stock;
-    price = pr;
-}
 
 class PetStoreAnimal : public PetStoreItem
 {
     protected:
         int petAge;
     public:
-        PetStoreAnimal(int, double, int);
+        PetStoreAnimal(int stock, double pr, int age) : PetStoreItem(stock, pr), petAge(age) {}
 };
-
-PetStoreAnimal::PetStoreAnimal(int stock, double pr, int age) : PetStoreItem(stock, pr)
-{
-    petAge = age;
-}
 
 int main()
 {

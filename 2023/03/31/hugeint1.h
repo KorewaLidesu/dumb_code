@@ -18,15 +18,18 @@ class HugeInt
         HugeInt operator+(const HugeInt &); // add another Hugelnt
         HugeInt operator+(int); // add an int
         HugeInt operator+(const char *); // add an int in a char *
+        bool operator==(const HugeInt);
+        bool operator!=(const HugeInt);
     private:
-        short integer[30];
+        int size = 30;
+        short* integer;
 };
 
 // Printout value using stdout
 ostream &operator<<(ostream &out, const HugeInt &input)
 {
     bool isStart = false;
-    for (int i = 0 ; i < 30 ; i++)
+    for (int i = 0 ; i < input.size ; i++)
     {
         if (input.integer[i] != 0) isStart = true; 
         if (isStart) out << input.integer[i];
@@ -37,6 +40,8 @@ ostream &operator<<(ostream &out, const HugeInt &input)
 // HugeInt contructor with long parameter
 HugeInt::HugeInt(long input)
 {
+    integer = new short[size];
+
     // Filling array with default value (0)
     for (int i = 0 ; i < 30 ; i++) 
         integer[i] = 0;
@@ -79,8 +84,8 @@ HugeInt HugeInt::operator+(const HugeInt &addition)
     for (int i = 29 ; i >= 0 ; i++) {
         temp.integer[i] += this -> integer[i] + addition.integer[i];
 
-        // If the value in spot more than 9
-        // We will increase on the next pointer to get true value
+        // if value within pointer is more than 9,
+        // the next pointer will be increased to get correct value
         if (temp.integer[i] > 9 && i != 0)
         {
             temp.integer[i] -= 10;
@@ -125,5 +130,25 @@ HugeInt HugeInt::operator+(const char *string)
         }
     }
     return temp;
+}
+
+bool HugeInt::operator==(const HugeInt val)
+{
+    if (size != val.size) return false;
+    else
+    {
+        for (int i = 0 ; i < size ; i++)
+        {
+            if (integer[i] != val.integer[i]) 
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+bool HugeInt::operator!=(const HugeInt val)
+{
+    return !(*this == val);
 }
 #endif

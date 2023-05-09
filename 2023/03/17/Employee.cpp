@@ -6,17 +6,11 @@ class Employee
         int idNum;
         double salary;
     public:
-        Employee(int = 0, double = 0.00);
+        Employee(int id = 0, double sal = 0.00) : idNum(id), salary(sal) {}
         double operator+(Employee);
         Employee operator+(double);
         double operator-(Employee);
 };
-
-Employee::Employee(int id, double sal)
-{
-    idNum = id;
-    salary = sal;
-}
 
 double Employee::operator+(Employee emp)
 {
