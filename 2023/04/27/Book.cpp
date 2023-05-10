@@ -22,6 +22,7 @@ void Book::display()
             << "Author: " << author << std::endl;
 }
 
+// Using DRA = Developmental reading assessment
 class Fiction : public Book
 {
     private:
@@ -60,12 +61,13 @@ void NonFiction::display()
 
 int main()
 {
-    Book normalBook;
+    Book normalBook("Cambridge IELTS 17 Academic With Answers", "Cambridge");
     normalBook.display();
 
-    NonFiction nonFiction;
+    NonFiction nonFiction("Into Thin Air", "Jon Krakauer", 416);
     nonFiction.display();
 
-    Fiction fiction;
+    // https://www.justrightreads.com/dra-60-80
+    Fiction fiction("The Wonderful Wizard Of Oz", "L. Frank Baum", 60);
     fiction.display();
 }
