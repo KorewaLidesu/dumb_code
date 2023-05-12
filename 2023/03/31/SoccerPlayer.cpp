@@ -10,7 +10,7 @@ class SoccerPlayer
         int goals;
         int assists;
     public:
-        SoccerPlayer(int num = 9999, int goals = 0, int assists = 0) 
+        SoccerPlayer(int num = 1, int goals = 0, int assists = 0) 
             : jerseyNum(num), goals(goals), assists(assists) {}
         int getJerseyNum(void) { return jerseyNum; }
         int getGoals(void) { return goals; }
